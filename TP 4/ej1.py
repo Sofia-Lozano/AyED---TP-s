@@ -6,10 +6,12 @@ verificar su funcionamiento.
 def es_capicua(cadena: str) -> bool:
     """verifica si la cadena brindada por el usuario es capicúa o no, retorna booleanos.
     """
-    lista = list(cadena)
-    for x in range(len(lista)):
-        if lista[x] != lista[len(lista) - x -1]:
+    x, y = 0, len(cadena) - 1
+    while x < y:
+        if cadena[x] != cadena[y]:
             return False
+        x += 1
+        y -= 1
     return True
 
 def main() -> None:
@@ -18,9 +20,9 @@ def main() -> None:
     """
     cadena = input("Ingrese una cadena de caracteres: ")
     if es_capicua(cadena):
-        print(f"La cadena {cadena} es capicúa.")
+        print("La cadena es capicúa.")
     else:
-        print(f"La cadena {cadena} no es capicúa.")
+        print("La cadena no es capicúa.")
         
 if  __name__ == "__main__":
     main()
